@@ -2,19 +2,14 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      python: 3.8
     commands:
-      - echo Installing SSH client...
+      - echo "Installing openssh-clients..."
       - yum install -y openssh-clients
-
-  pre_build:
-    commands:
-      - echo Setting up private key...
-      - echo "$PRIVATE_KEY" > lab_project.pem
-      - chmod 400 lab_project.pem
 
   build:
     commands:
-      - echo Copying files to EC2 instance...
+      - echo "Writing private key to file..."
+      - echo "$PRIVATE_KEY" > lab_project.pem
+      - chmod 400 lab_project.pem
+      - echo "Transferring file to EC2..."
       - scp -o StrictHostKeyChecking=no -i lab_project.pem index.html ec2-user@$EC2_IP:/home/ec2-user/
