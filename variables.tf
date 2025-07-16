@@ -24,7 +24,15 @@ variable "key_name" {
   description = "Name of EC2 key pair"
   type        = string
 }
+variable "bucket_name" {
+  description = "Name of the S3 bucket for CodePipeline artifacts"
+  type        = string
+}
 
+variable "private_key" {
+  description = "Private key used by CodeBuild to connect to EC2"
+  type        = string
+}
 variable "ec2_ip" {
   description = "Public IP of EC2 instance to deploy to"
   type        = string
