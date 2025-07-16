@@ -79,21 +79,15 @@ resource "aws_codebuild_project" "build_project" {
     type = "CODEPIPELINE"
   }
 
-  environment {
-    compute_type                = "BUILD_GENERAL1_SMALL"
-    image                       = "aws/codebuild/standard:5.0"
-    type                        = "LINUX_CONTAINER"
-    environment_variables = [
-      {
-        name  = "EC2_IP"
-        value = var.ec2_ip
-      },
-      {
-        name  = "PRIVATE_KEY"
-        value = var.private_key
-        type  = "PLAINTEXT"
-      }
-    ]
+environment {
+  compute_type                = "BUILD_GENERAL1_SMALL"
+  image                       = "aws/codebuild/amazonlinux2-x86_64-standard:5.0"
+  type                        = "LINUX_CONTAINER"
+  environment_variable {
+    name  = "INSTANCE_IP"
+    value = "your-ec2-public-ip"
+  }
+}
   }
 }
 
