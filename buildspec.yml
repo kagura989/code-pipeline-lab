@@ -14,7 +14,11 @@ phases:
       - echo "Checking EC2 IP: $EC2_IP"
       - echo "Pinging EC2..."
       - ping -c 4 $EC2_IP
-      - echo "Trying ssh connection (dry run)"
+      - echo "Trying ssh connection"
       - ssh -o StrictHostKeyChecking=no -i lab_project.pem ec2-user@$EC2_IP "echo '✅ SSH CONNECTED'"
-      - echo "Now using scp"
+      - echo "Using SCP to copy index.html"
       - scp -o StrictHostKeyChecking=no -i lab_project.pem index.html ec2-user@$EC2_IP:/home/ec2-user/
+
+artifacts:
+  files:
+    - index.html
