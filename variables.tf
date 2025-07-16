@@ -37,3 +37,7 @@ variable "ec2_ip" {
   description = "Public IP of EC2 instance to deploy to"
   type        = string
 }
+variable "github_branch" {
+  description = "GitHub branch name"
+  type        = string
+}
