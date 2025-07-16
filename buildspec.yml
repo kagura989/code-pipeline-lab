@@ -11,8 +11,6 @@ phases:
       - echo "Saving private key to file"
       - echo "$PRIVATE_KEY" > lab_project.pem
       - chmod 400 lab_project.pem
-      - echo "Pinging EC2 instance at $EC2_IP"
-      - ping -c 2 $EC2_IP
       - echo "Testing SSH connection"
       - ssh -o StrictHostKeyChecking=no -i lab_project.pem ec2-user@$EC2_IP "echo Connected!"
       - echo "Transferring file to EC2"
