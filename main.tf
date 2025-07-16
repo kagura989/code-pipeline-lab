@@ -1,7 +1,3 @@
-provider "aws" {
-  region = var.region
-}
-
 # IAM role for CodePipeline
 resource "aws_iam_role" "codepipeline_role" {
   name = "codepipeline-role"
