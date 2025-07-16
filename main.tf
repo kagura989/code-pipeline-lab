@@ -88,7 +88,7 @@ environment {
     value = "your-ec2-public-ip"
   }
 }
-  }
+  
 }
 
 # CodeDeploy App
