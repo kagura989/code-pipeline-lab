@@ -1,0 +1,12 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: latest
+  build:
+    commands:
+      - echo "Build successful"
+  post_build:
+    commands:
+      - echo "Deploying to EC2"
